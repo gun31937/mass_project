@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /mass/
+	#RewriteBase /
+
+	RewriteCond $1 !^(index\.php|css|js|assets|node_modules|uploads|ckfinder|font|captcha|robots.txt|geoip.inc|GeoIP.dat|check.php|index.html|intro.jpg|livechat)
+	RewriteRule ^(.*)$ index.php [L]
+</IfModule>

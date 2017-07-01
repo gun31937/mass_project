@@ -1,0 +1,29 @@
+@import url('../../font/cordia/cordia.css');
+@import url('../../font/sansation/sansation.css');
+
+// Varianle, Mixin
+$theme_color : #870000;
+
+.cordia{
+	font-family: 'cordia', sans-serif;
+	font-size: 1.2em;
+}
+
+.sansation{
+	font-family: 'sansation', sans-serif;
+	font-size: 1.2em;
+}
+
+
+// Web style
+html, body{
+	@extend .cordia;
+	color: $theme_color;
+}
+
+@media (min-width: 1200px){
+	.container {
+	    width: 1200px;
+	    max-width: 100%;
+	}
+}
