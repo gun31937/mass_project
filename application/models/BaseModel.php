@@ -373,34 +373,6 @@ class BaseModel extends CI_Model {
 		
 	}
 
-   
-
-     function send_chotmai_email($type,$email_data,$language)
-    {
-		$content = $this->baseModel->getWhere('tb_email_content',array('type' => $type),'email_content_id asc')->row();
-		$subject = 'subject_'.$language;
-		$detail = 'detail_'.$language;
-
-		foreach ($email_data as $key => $value)
-		{
-			$content->$detail = str_replace($key,$value,$content->$detail);
-		}
-		
-		$message = $content->$detail;
-
-        $config['mailtype'] = 'html';
-        $this->email->initialize($config);
-        
-		$this->email->to($email_data['{email_to}']); 
-		$this->email->from($email_data['{email_from}']);
-		$this->email->subject($content->$subject);
-		$this->email->message($message);	
-		$this->email->send();
-
-		return $message;
-
-	}
-
 	function web($slug)
 	{
 		$this->db->where('slug',$slug);
